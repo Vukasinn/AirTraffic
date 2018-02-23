@@ -1,11 +1,11 @@
-html{
+html {
     overflow: hidden;
 }
 
-body{
+body {
     background-image: url('../Images/background.jpg');
     background-size: cover;
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
     -moz-background-size: cover;
     -o-background-size: cover;
     -webkit-background-size: cover;
@@ -14,16 +14,13 @@ body{
     width: 100vw;
 }
 
-
-
-
-#outerBox{
+#outerBox {
     height: 70vh;
     width: 30vw;
-    background: linear-gradient(#2E0854,#4B0082,#6B238E,black);
-    background: -moz-linear-gradient(#2E0854,#4B0082,#6B238E,black);
-    background: -webkit-linear-gradient(#2E0854,#4B0082,#6B238E,black);
-    background: -o-linear-gradient(#2E0854,#4B0082,#6B238E,black);
+    background: linear-gradient(#add8e6, #8aacb8, #6B238E, black);
+    background: -moz-linear-gradient(#add8e6, #8aacb8, #6B238E, black);
+    background: -webkit-linear-gradient(#add8e6, #8aacb8, #6B238E, black);
+    background: -o-linear-gradient(#add8e6, #8aacb8, #6B238E, black);
     position: fixed;
     top: 0;
     bottom: 0;
@@ -33,3 +30,12 @@ body{
     border-radius: 4%;
 }
 
+#innerBox {
+    position: relative;
+    top: 5%;
+    margin: 0 auto;
+    height: 90%;
+    width: 90%;
+    background-color: #B8B8B8;
+    border-radius: 4%;
+}
