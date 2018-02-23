@@ -1,12 +1,13 @@
-var x = document.getElementById("demo");
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude +
-    "<br>Longitude: " + position.coords.longitude;
-}
+let api = "http://public-api.adsbexchange.com/VirtualRadar/AircraftList.json?"
+
+
+navigator.geolocation.watchPosition(function (position) {
+        let latitude = position.coords.latitude;
+        let longitude = position.coords.longitude;
+        console.log(latitude);
+        console.log(longitude);
+    },
+    function (error) {
+        if (error.code == error.PERMISSION_DENIED)
+            document.querySelector('.errorText').innerHTML = "Please allow usage of your geolocation, it is necessary to run the app."
+    });

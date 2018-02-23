@@ -9,15 +9,14 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="css/styles.css" />
 </head>
-
-<body onload="getLocation()">
-
+<!-- Every time the page load, user is asked to give his location-->
+<body onload="watchPosition()">
+		<!--  -->
 	<div id="outerBox">
 		<div id="innerBox">
-
+			<h1 class="errorText"></h1>
 		</div>
 	</div>
-	<p id="demo"></p>
 	<script type="text/javascript" src="js/app.js"></script>
 </body>
 
