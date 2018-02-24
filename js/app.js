@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const lat = position.coords.latitude;
             const long = position.coords.longitude;
             APIrequest(lat, long); // initial API call on load
-            setInterval(() => APIrequest(lat, long), 3000); // subsequent calls every 60 seconds
+            setInterval(() => APIrequest(lat, long), 60000); // subsequent calls every 60 seconds
         },
         (error) => {
             if (error.code == error.PERMISSION_DENIED)
