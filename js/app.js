@@ -13,51 +13,59 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const APIrequest = (lat, long) => {
         fetch(`https://cors-anywhere.herokuapp.com/http://public-api.adsbexchange.com/VirtualRadar/AircraftList.json?lat=${lat}&lng=${long}&fDstL=0&fDstU=100`)
-          .then(res => res.json())
-          .then((data) => {
-              // here is the data. We want the acList value
-              // sort data from highest altitude down to lowest
-              // set global planes data
-              const planesData = data.acList.sort((a, b) => b.Alt - a.Alt);
-              // call DOM update handler here pass -> (data.acList.sort((a, b) => b.Alt - a.Alt))
-              updateDOM(data.acList.sort((a, b) => b.Alt - a.Alt));
-              console.log(planesData);
-          });
+            .then(res => res.json())
+            .then((data) => {
+                // here is the data. We want the acList value
+                // sort data from highest altitude down to lowest
+                // set global planes data
+                const planesData = data.acList.sort((a, b) => b.Alt - a.Alt);
+
+                // call DOM update handler here pass -> (data.acList.sort((a, b) => b.Alt - a.Alt))
+                updateDOM(data.acList.sort((a, b) => b.Alt - a.Alt));
+                console.log(planesData);
+            });
     };
-  
+
     // create DOM update handler here
     const updateDOM = (planesData) => {
-      // target parent container, in this case it's the #plane_container
-      const parent = document.querySelector('#plane_container')
-      // loop planes data -> parent.append(html)
-  
-      while (parent.firstChild) {
-        parent.removeChild(parent.firstChild);
-      }
-      
-      planesData.forEach(plane => {
-        let node = document.createElement('DIV')
-        node.classList.add('col-sm')
-        node.innerHTML = `
+        // target parent container, in this case it's the #plane_container
+        const parent = document.querySelector('#plane_container')
+        // loop planes data -> parent.append(html)
+
+        while (parent.firstChild) {
+            parent.removeChild(parent.firstChild);
+        }
+
+        planesData.forEach(plane => {
+            let node = document.createElement('DIV')
+            node.classList.add('col-sm')
+            node.innerHTML = `
+          <div id="accordition">
           <div class="card">
             <div class="card-header" id="headingThree">
-              <h5 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  ${plane.Alt}
-                  ${plane.Id}
-                </button>
-              </h5>
+              
+                <h3 data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree"></h3>
+                <p><strong>Plane Altitude:</strong> ${plane.Alt}</p>
+                <p><strong>ID of the flight:</strong> ${plane.Id}</p>
+                
+                <div class="detailed">
+                    <h6>Airplane Manufacturer: ${plane.Man}</h6>
+                    <h6>Airplane Model: ${plane.Mdl}</h6>
+                    <h6>Destionation: ${plane.To}</h6>
+                    <h6>Flight Origin: ${plane.From}</h6>
+                </div>
+            </div>
             </div>
         `
-        parent.appendChild( node )
-      })
-  
-      // we have planesData array (it has aircraft objects as each ELEMENT)
-      // what map does is it will iterate over the array and return a COPY of the array
-      // that has every ELEMENT formatted in some way defined by the callback function of map
-      // map((e) => { /*everything in here to will be applied to each (e)*/ 
+            parent.appendChild(node)
+        })
+
+        // we have planesData array (it has aircraft objects as each ELEMENT)
+        // what map does is it will iterate over the array and return a COPY of the array
+        // that has every ELEMENT formatted in some way defined by the callback function of map
+        // map((e) => { /*everything in here to will be applied to each (e)*/ 
     }
-  
+
     navigator.geolocation.getCurrentPosition(
         (position) => {
             const lat = position.coords.latitude;
@@ -69,4 +77,4 @@ document.addEventListener("DOMContentLoaded", () => {
             if (error.code == error.PERMISSION_DENIED)
                 document.querySelector('.errorText').innerHTML = "Please allow usage of your geolocation, it is necessary to run the app."
         });
-  });
+});

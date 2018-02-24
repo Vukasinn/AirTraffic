@@ -54,3 +54,16 @@ body {
     top: 2%;
     border-radius: 4%;
 }
+
+.card:hover{
+    cursor: pointer;
+    background-color: #999;
+    transition: 0.5s;
+}
+
+.detailed{
+    float: right;
+    position: relative;
+    bottom: 9vh;
+    
+}
