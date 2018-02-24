@@ -16,8 +16,8 @@ body {
 }
 
 #outerBox {
-    height: 70vh;
-    width: 30vw;
+    height: 95vh;
+    width: 60vw;
     background: linear-gradient(#add8e6, #8aacb8, #6B238E, black);
     background: -moz-linear-gradient(#add8e6, #8aacb8, #6B238E, black);
     background: -webkit-linear-gradient(#add8e6, #8aacb8, #6B238E, black);
@@ -47,4 +47,10 @@ body {
     font-family: 'Raleway', 'sans-serif';
     position: relative;
     top: 35%;
+}
+
+#plane_container{
+    position: relative;
+    top: 2%;
+    border-radius: 4%;
 }
