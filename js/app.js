@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // create DOM update handler here
     const updateDOM = (planesData) => {
         // target parent container, in this case it's the #plane_container
-        const parent = document.querySelector('#plane_container')
+        const parent = document.querySelector('#planeContainer')
         // loop planes data -> parent.append(html)
 
         while (parent.firstChild) {
@@ -45,14 +45,15 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="card-header" id="headingThree">
               
                 <h3 data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree"></h3>
-                <p><strong>Plane Altitude:</strong> ${plane.Alt}</p>
-                <p><strong>ID of the flight:</strong> ${plane.Id}</p>
+                <p class="listPart"><strong>Plane Altitude:</strong> ${plane.Alt}</p>
+                <p class="listPart"><strong>ID of the flight:</strong> ${plane.Id}</p>
                 
                 <div class="detailed">
-                    <h6>Airplane Manufacturer: ${plane.Man}</h6>
-                    <h6>Airplane Model: ${plane.Mdl}</h6>
-                    <h6>Destionation: ${plane.To}</h6>
-                    <h6>Flight Origin: ${plane.From}</h6>
+                    <h6 class="listPart">Airplane Manufacturer: ${plane.Man}</h6>
+                    <h6 class="listPart">Airplane Model: ${plane.Mdl}</h6>
+                    <h6 class="listPart">Destionation: ${plane.To}</h6>
+                    <h6 class="listPart">Flight Origin: ${plane.From}</h6>
+                    <img src="https://logo.clearbit.com/${plane.Man}</img>
                 </div>
             </div>
             </div>
@@ -78,9 +79,3 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.querySelector('.errorText').innerHTML = "Please allow usage of your geolocation, it is necessary to run the app."
         });
 });
-
-$(document).ready(function(){
-    $('.collapse-ccc').on('show.bs.collapse', function (e) {
-        $('.collapse-ccc').collapse("hide")
-    })
-})
