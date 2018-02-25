@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 html {
-    overflow: hidden;
 }
 
 body {
@@ -18,11 +17,13 @@ body {
 #outerBox {
     height: 95vh;
     width: 60vw;
+    display: block;
+    overflow: auto;
     background: linear-gradient(#add8e6, #8aacb8, #6B238E, black);
     background: -moz-linear-gradient(#add8e6, #8aacb8, #6B238E, black);
     background: -webkit-linear-gradient(#add8e6, #8aacb8, #6B238E, black);
     background: -o-linear-gradient(#add8e6, #8aacb8, #6B238E, black);
-    position: fixed;
+    
     top: 0;
     bottom: 0;
     left: 0;
@@ -61,9 +62,9 @@ body {
     transition: 0.5s;
 }
 
-.detailed{
+/* .detailed{
     float: right;
     position: relative;
     bottom: 9vh;
     
-}
+} */

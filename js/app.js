@@ -78,3 +78,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.querySelector('.errorText').innerHTML = "Please allow usage of your geolocation, it is necessary to run the app."
         });
 });
+
+$(document).ready(function(){
+    $('.collapse-ccc').on('show.bs.collapse', function (e) {
+        $('.collapse-ccc').collapse("hide")
+    })
+})
