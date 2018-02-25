@@ -35,17 +35,17 @@ document.addEventListener("DOMContentLoaded", () => {
         while (parent.firstChild) {
             parent.removeChild(parent.firstChild);
         }
-
+       
         planesData.forEach(plane => {
-            let node = document.createElement('DIV')
-            node.classList.add('col-sm')
+            let node = document.createElement('DIV');
+            node.classList.add('col-sm');
             node.innerHTML = `
           <div id="accordition">
           <div class="card">
             <div class="card-header" id="headingThree">
               
                 <h3 data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree"></h3>
-                <p class="listPart"><strong>Plane Altitude:</strong> ${plane.Alt}</p>
+                <p class="listPart"><strong>Plane Altitude:</strong> ${plane.Alt}m</p>
                 <p class="listPart"><strong>ID of the flight:</strong> ${plane.Id}</p>
                 
                 <div class="detailed">
@@ -58,8 +58,8 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
             </div>
         `
-            parent.appendChild(node)
-        })
+            parent.appendChild(node);
+        });
 
         // we have planesData array (it has aircraft objects as each ELEMENT)
         // what map does is it will iterate over the array and return a COPY of the array
